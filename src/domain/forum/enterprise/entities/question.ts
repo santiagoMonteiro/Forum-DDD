@@ -3,7 +3,7 @@ import { Slug } from './value-objects/slug'
 import { Entity } from '@/core/entities/entity'
 import { Optional } from '@/core/types/optional'
 
-type QuestionProps = {
+export type QuestionProps = {
   authorId: UniqueEntityID
   bestAnswerId?: UniqueEntityID
   title: string
