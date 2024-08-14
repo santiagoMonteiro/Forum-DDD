@@ -1,19 +1,24 @@
+import { Answer } from '../../enterprise/entities/answer'
 import { AnswerRepository } from '../repositories/answer-repository'
 
-type DeleteAnswerUseCaseRequest = {
+type EditAnswerUseCaseRequest = {
   authorId: string
   answerId: string
+  content: string
 }
 
-type DeleteAnswerUseCaseResponse = {}
+type EditAnswerUseCaseResponse = {
+  answer: Answer
+}
 
-export class DeleteAnswerUseCase {
+export class EditAnswerUseCase {
   constructor(private answerRepository: AnswerRepository) {}
 
   async execute({
     authorId,
     answerId,
-  }: DeleteAnswerUseCaseRequest): Promise<DeleteAnswerUseCaseResponse> {
+    content,
+  }: EditAnswerUseCaseRequest): Promise<EditAnswerUseCaseResponse> {
     const answer = await this.answerRepository.findById(answerId)
 
     if (!answer) {
@@ -24,8 +29,12 @@ export class DeleteAnswerUseCase {
       throw new Error('Not allowed.')
     }
 
-    await this.answerRepository.delete(answer)
+    answer.content = content
 
-    return {}
+    await this.answerRepository.save(answer)
+
+    return {
+       answer 
+    }
   }
 }

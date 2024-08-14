@@ -1,14 +1,14 @@
-import { InMemoryQuestionsRepository } from '_/test/repositories/in-memory-questions-repository'
+import { InMemoryQuestionRepository } from '_/test/repositories/in-memory-question-repository'
 import { AnswerQuestionUseCase } from './answer-question'
-import { InMemoryAnswersRepository } from '_/test/repositories/in-memory-answers-repository'
+import { InMemoryAnswerRepository } from '_/test/repositories/in-memory-answer-repository'
 
-let inMemoryAnswersRepository: InMemoryAnswersRepository
+let inMemoryAnswerRepository: InMemoryAnswerRepository
 let sut: AnswerQuestionUseCase
 
 describe('Create Answer', () => {
   beforeEach(() => {
-    inMemoryAnswersRepository = new InMemoryAnswersRepository()
-    sut = new AnswerQuestionUseCase(inMemoryAnswersRepository)
+    inMemoryAnswerRepository = new InMemoryAnswerRepository()
+    sut = new AnswerQuestionUseCase(inMemoryAnswerRepository)
   })
 
   test('should be able to create an answer', async () => {
@@ -19,6 +19,6 @@ describe('Create Answer', () => {
     })
 
     expect(answer.id).toBeTruthy()
-    expect(inMemoryAnswersRepository.items[0].id).toEqual(answer.id)
+    expect(inMemoryAnswerRepository.items[0].id).toEqual(answer.id)
   })
 })
