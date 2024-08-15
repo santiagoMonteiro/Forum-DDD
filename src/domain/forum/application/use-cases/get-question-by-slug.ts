@@ -1,6 +1,4 @@
-import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Question } from '../../enterprise/entities/question'
-import { AnswerRepository } from '../repositories/answer-repository'
 import { QuestionRepository } from '../repositories/question-repository'
 
 type GetQuestionBySlugUseCaseRequest = {

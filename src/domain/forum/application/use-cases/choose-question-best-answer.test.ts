@@ -1,4 +1,3 @@
-import { DeleteAnswerUseCase } from './delete-answer'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { makeAnswer } from '_/test/factories/make-answer'
 import { InMemoryAnswerRepository } from '_/test/repositories/in-memory-answer-repository'
