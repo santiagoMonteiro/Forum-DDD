@@ -1,4 +1,3 @@
-import { InMemoryQuestionRepository } from '_/test/repositories/in-memory-question-repository'
 import { AnswerQuestionUseCase } from './answer-question'
 import { InMemoryAnswerRepository } from '_/test/repositories/in-memory-answer-repository'
 
