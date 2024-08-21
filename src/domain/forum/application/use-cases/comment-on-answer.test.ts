@@ -1,7 +1,7 @@
 import { InMemoryAnswerRepository } from '_/test/repositories/in-memory-answer-repository'
 import { makeAnswer } from '_/test/factories/make-answer'
 import { CommentOnAnswerUseCase } from './comment-on-answer'
-import { InMemoryAnswerCommentRepository } from '_/test/repositories/in-memory-question-answer-repository'
+import { InMemoryAnswerCommentRepository } from '_/test/repositories/in-memory-answer-comment-repository'
 
 let inMemoryAnswerRepository: InMemoryAnswerRepository
 let inMemoryAnswerCommentRepository: InMemoryAnswerCommentRepository

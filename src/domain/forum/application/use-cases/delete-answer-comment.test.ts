@@ -1,7 +1,7 @@
 import { DeleteAnswerComment } from './delete-answer-comment'
 import { makeAnswerComment } from '_/test/factories/make-answer-comment'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
-import { InMemoryAnswerCommentRepository } from '_/test/repositories/in-memory-question-answer-repository'
+import { InMemoryAnswerCommentRepository } from '_/test/repositories/in-memory-answer-comment-repository'
 
 let inMemoryAnswerCommentRepository: InMemoryAnswerCommentRepository
 let sut: DeleteAnswerComment

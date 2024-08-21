@@ -1,5 +1,3 @@
-import { UniqueEntityID } from '@/core/entities/unique-entity-id'
-import { AnswerComment } from '../../enterprise/entities/answer-comment'
 import { AnswerCommentRepository } from '../repositories/answer-comment-repository'
 
 type DeleteAnswerCommentRequest = {

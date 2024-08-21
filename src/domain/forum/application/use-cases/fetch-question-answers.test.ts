@@ -1,5 +1,4 @@
 import { InMemoryAnswerRepository } from '_/test/repositories/in-memory-answer-repository'
-import { FetchRecentQuestionsUseCase } from './fetch-recent-questions'
 import { FetchQuestionAnswersUseCase } from './fetch-question-answers'
 import { makeAnswer } from '_/test/factories/make-answer'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
