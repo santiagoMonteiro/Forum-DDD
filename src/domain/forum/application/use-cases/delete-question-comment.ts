@@ -1,35 +1,34 @@
-import { UniqueEntityID } from '@/core/entities/unique-entity-id'
-import { QuestionComment } from '../../enterprise/entities/question-comment'
+import { Either, failure, success } from '@/core/either'
 import { QuestionCommentRepository } from '../repositories/question-comment-repository'
 
-type DeleteQuestionCommentRequest = {
+type DeleteQuestionCommentUseCaseRequest = {
   authorId: string
   questionCommentId: string
 }
 
-type DeleteQuestionCommentResponse = {}
+type DeleteQuestionCommentUseCaseResponse = Either<string, {}>
 
-export class DeleteQuestionComment {
+export class DeleteQuestionCommentUseCase {
   constructor(private questionCommentRepository: QuestionCommentRepository) {}
 
   async execute({
     authorId,
     questionCommentId,
-  }: DeleteQuestionCommentRequest): Promise<DeleteQuestionCommentResponse> {
+  }: DeleteQuestionCommentUseCaseRequest): Promise<DeleteQuestionCommentUseCaseResponse> {
     const questionComment = await this.questionCommentRepository.findById(
       questionCommentId
     )
 
     if (!questionComment) {
-      throw new Error('Question Comment not found.')
+      return failure('Question Comment not found.')
     }
 
     if (questionComment.authorId.toString() !== authorId) {
-      throw new Error('Not allowed.')
+      return failure('Not allowed.')
     }
 
     await this.questionCommentRepository.delete(questionComment)
 
-    return {}
+    return success({})
   }
 }

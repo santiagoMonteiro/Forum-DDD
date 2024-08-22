@@ -1,19 +1,19 @@
 import { AnswerCommentRepository } from '../repositories/answer-comment-repository'
 
-type DeleteAnswerCommentRequest = {
+type DeleteAnswerCommentUseCaseRequest = {
   authorId: string
   answerCommentId: string
 }
 
-type DeleteAnswerCommentResponse = {}
+type DeleteAnswerCommentUseCaseResponse = {}
 
-export class DeleteAnswerComment {
+export class DeleteAnswerCommentUseCase {
   constructor(private answerCommentRepository: AnswerCommentRepository) {}
 
   async execute({
     authorId,
     answerCommentId,
-  }: DeleteAnswerCommentRequest): Promise<DeleteAnswerCommentResponse> {
+  }: DeleteAnswerCommentUseCaseRequest): Promise<DeleteAnswerCommentUseCaseResponse> {
     const answerComment = await this.answerCommentRepository.findById(
       answerCommentId
     )
