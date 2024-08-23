@@ -12,7 +12,7 @@ test('success result', () => {
   const successResult = doSomething(true)
 
   if (successResult.isSuccess()) {
-    console.log(successResult.value)
+    // console.log(successResult.value)
   }
 
   expect(successResult.isSuccess()).toBe(true)

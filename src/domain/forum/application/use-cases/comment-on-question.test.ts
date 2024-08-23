@@ -23,12 +23,13 @@ describe('Comment on Question', () => {
 
     await inMemoryQuestionRepository.create(question)
 
-    await sut.execute({
+    const result = await sut.execute({
       questionId: question.id.toString(),
       authorId: question.authorId.toString(),
       content: 'test comment',
     })
 
+    expect(result.isSuccess()).toBe(true)
     expect(inMemoryQuestionCommentRepository.items[0].content).toEqual(
       'test comment'
     )

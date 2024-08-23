@@ -39,3 +39,4 @@ export const failure = <F, S>(value: F): Either<F, S> => {
 export const success = <F, S>(value: S): Either<F, S> => {
   return new Success(value)
 }
+

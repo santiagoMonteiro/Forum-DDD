@@ -19,11 +19,12 @@ describe('Delete Question Comment', () => {
 
     await inMemoryQuestionCommentRepository.create(questionComment)
 
-    await sut.execute({
+    const result = await sut.execute({
       questionCommentId: questionComment.id.toString(),
       authorId: questionComment.authorId.toString(),
     })
 
+    expect(result.isSuccess()).toBe(true)
     expect(inMemoryQuestionCommentRepository.items).toHaveLength(0)
   })
 

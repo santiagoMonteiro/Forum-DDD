@@ -1,6 +1,7 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Answer } from '../../enterprise/entities/answer'
 import { AnswerRepository } from '../repositories/answer-repository'
+import { Either, success } from '@/core/either'
 
 type AnswerQuestionUseCaseRequest = {
   instructorId: string
@@ -8,9 +9,7 @@ type AnswerQuestionUseCaseRequest = {
   content: string
 }
 
-type AnswerQuestionUseCaseResponse = {
-  answer: Answer
-}
+type AnswerQuestionUseCaseResponse = Either<null, { answer: Answer }>
 
 export class AnswerQuestionUseCase {
   constructor(private answerRepository: AnswerRepository) {}
@@ -28,8 +27,6 @@ export class AnswerQuestionUseCase {
 
     await this.answerRepository.create(answer)
 
-    return {
-      answer
-    }
+    return success({ answer })
   }
 }
